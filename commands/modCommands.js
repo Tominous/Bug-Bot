@@ -38,9 +38,9 @@ let modCommands = {
 
         case "!getuser":
           db.all("SELECT * FROM users WHERE userid = ?", [recievedMessage], function(error, data) {
-            //bot.getDMChannel(userID).then((dmChannel) => {
-            //  bot.createMessage(dmChannel.id, data);
-            //}).catch((error) => {console.log(error);})
+            bot.getDMChannel(userID).then((dmChannel) => {
+              bot.createMessage(dmChannel.id, data);
+            }).catch((error) => {console.log(error);})
             console.log(data);
           });
           break;
