@@ -53,7 +53,7 @@ commandList.add('reproductions');
 commandList.add('revoke');
 commandList.add('storeInfo');
 commandList.add('submit');
-//commandList.add('utilCommands');
+commandList.add('utilCommands');
 
 function userHasRole(user, role) {
   return user.roles.some(memberRole => memberRole === role);
@@ -164,7 +164,7 @@ bot.on('messageCreate', (msg) => {
                 bot.deleteMessage(config.channels.charterChannel, thisMsg.id).catch(() => {});
               }
             });
-            /*
+            
             db.get('SELECT userID FROM users WHEN userID = ?', [userID], function(err, reply) {
               if(!!err) {
                 console.log("BH user add\n" + err);
@@ -176,7 +176,7 @@ bot.on('messageCreate', (msg) => {
                 db.run('INSERT INTO users (userID, bhjoindate) VALUES(?, datetime())', [userID]);
               }
 
-            }); */
+            }); 
             bot.createMessage(config.channels.bugHunterChannel, `Welcome <@${userID}> to the Bug Hunters:tm:!`);
             bot.createMessage(config.channels.modLogChannel, `<:evilDabbit:233327051686412288> **${userTag}** just did the do and became a Bug Hunter:tm:!`);
           });
